@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.hascode.tutorial</groupId>
-	<artifactId>spring-oath2-identity-server</artifactId>
+	<artifactId>spring-oath2-resource-provider</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
