@@ -1,4 +1,0 @@
-curl -XPOST -k -vi acme:acmesecret@localhost:9999/uaa/oauth/token  \
--d grant_type=password -d client_id=acme -d client_secret=abc123     \
--d redirect_uri=https://example.com -d username=acme -d password=acmesecret
-
