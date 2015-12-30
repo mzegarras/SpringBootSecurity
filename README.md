@@ -25,9 +25,9 @@ cd resource-provider && mvn spring-boot:run
 Using Curl
 
 ```
-   curl -XPOST -k -vi acme:acmesecret@localhost:9999/uaa/oauth/token \
-   -d grant_type=password -d client_id=acme -d client_secret=abc123 \
-   -d redirect_uri=https://example.com -d username=acme -d password=acmesecret
+   curl -XPOST -k -vi foo:foosecret@localhost:9000/hascode/oauth/token \
+   -d grant_type=password -d client_id=foo -d client_secret=abc123 \
+   -d redirect_uri=http://www.hascode.com -d username=bar -d password=barsecret
 ```
 
 # Accessing the secured Resource
