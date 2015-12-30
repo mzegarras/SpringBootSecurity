@@ -19,10 +19,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 @RestController
 @EnableResourceServer
-public class SpringOath2SampleApplication extends WebMvcConfigurerAdapter {
+public class Oauth2AuthorizationServerApplication extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringOath2SampleApplication.class, args);
+		SpringApplication.run(Oauth2AuthorizationServerApplication.class, args);
 	}
 
 	@Configuration
@@ -38,7 +38,7 @@ public class SpringOath2SampleApplication extends WebMvcConfigurerAdapter {
 
 		@Override
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-			clients.inMemory().withClient("acme").secret("acmesecret")
+			clients.inMemory().withClient("foo").secret("foosecret")
 					.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("openid");
 		}
 	}
