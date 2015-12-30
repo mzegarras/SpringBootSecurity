@@ -34,7 +34,7 @@ Using Curl
 
 ```
    TOKEN = 'xxxxxxx'
-   curl -vi -H "Authorization: Bearer $TOKEN" http://localhost:9998/resource/
+   curl -vi -H "Authorization: Bearer $TOKEN" http://localhost:9001/resource/
 ```
 
 ---
