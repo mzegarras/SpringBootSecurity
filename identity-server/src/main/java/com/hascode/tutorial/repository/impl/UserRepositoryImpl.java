@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,14 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public User findUserById(String name) {
-		return jdbcTemplate.queryForObject("select * from users where username=?", new Object[] { name }, new UserRowMapper());
+		try {
+			return jdbcTemplate.queryForObject("select * from users where username=?", new Object[] { name },
+					new UserRowMapper());
+
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+
 	}
 
 	private class UserRowMapper implements RowMapper<User> {
