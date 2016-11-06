@@ -1,8 +1,11 @@
 # Spring Boot OAuth 2 Examples
 
-Examples how to set up an OAuth2 identity server and resource provider within a few minutes using [Spring Boot] and Maven.
 
-Please feel free to take a look at [my blog] for the full tutorial.
+
+La idea original la encuentran en:
+
+http://www.hascode.com/2016/03/setting-up-an-oauth2-authorization-server-and-resource-provider-with-spring-boot/
+
 
 ## Running the Identity Server
 
@@ -27,7 +30,13 @@ Using Curl
 ```
    curl -XPOST -k -vi foo:foosecret@localhost:9000/hascode/oauth/token \
    -d grant_type=password -d client_id=foo -d client_secret=abc123 \
-   -d redirect_uri=http://www.hascode.com -d username=bar -d password=barsecret
+   -d redirect_uri=http://www.hascode.com -d username=manu -d password=123456
+```
+
+```
+   curl -XPOST -k -vi foo:foosecret@localhost:9000/hascode/oauth/token \
+   -d grant_type=password -d client_id=foo -d client_secret=abc123 \
+   -d redirect_uri=http://www.hascode.com -d username=niki -d password=123456
 ```
 
 # Accessing the secured Resource
@@ -37,9 +46,3 @@ Using Curl
    curl -vi -H "Authorization: Bearer $TOKEN" http://localhost:9001/resource/
 ```
 
----
-
-**2015 Micha Kops / hasCode.com**
-
-   [my blog]:http://www.hascode.com/
-   [Spring Boot]:http://projects.spring.io/spring-boot/
