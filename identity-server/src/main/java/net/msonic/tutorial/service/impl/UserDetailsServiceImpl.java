@@ -1,4 +1,4 @@
-package com.hascode.tutorial.service.impl;
+package net.msonic.tutorial.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.hascode.tutorial.common.model.User;
-import com.hascode.tutorial.repository.UserRepository;
+import net.msonic.tutorial.common.model.User;
+import net.msonic.tutorial.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

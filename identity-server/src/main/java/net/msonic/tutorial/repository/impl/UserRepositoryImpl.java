@@ -1,4 +1,4 @@
-package com.hascode.tutorial.repository.impl;
+package net.msonic.tutorial.repository.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.hascode.tutorial.common.model.User;
-import com.hascode.tutorial.repository.UserRepository;
+import net.msonic.tutorial.common.model.User;
+import net.msonic.tutorial.repository.UserRepository;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {

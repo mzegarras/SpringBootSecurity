@@ -1,4 +1,4 @@
-package com.hascode.tutorial.common.model;
+package net.msonic.tutorial.common.model;
 
 public class User {
 
