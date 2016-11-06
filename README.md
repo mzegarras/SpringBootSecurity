@@ -31,9 +31,11 @@ cd resource-provider && mvn spring-boot:run
 Using Curl
 
 ```
-   curl -XPOST -k -vi foo:foosecret@localhost:9000/hascode/oauth/token \
-   -d grant_type=password -d client_id=foo -d client_secret=abc123 \
-   -d redirect_uri=http://www.hascode.com -d username=manu -d password=123456
+   curl -XPOST -k -vi foo:foosecret@localhost:9000/hascode/oauth/token -d grant_type=password -d client_id=foo -d client_secret=foosecret -d redirect_uri=http://www.hascode.com -d username=manu -d password=123456
+```
+
+```
+   curl -XPOST -k -vi foo:foosecret@localhost:9000/hascode/oauth/token -d grant_type=password -d client_id=foo -d client_secret=foosecret -d username=manu -d password=123456
 ```
 
 ```

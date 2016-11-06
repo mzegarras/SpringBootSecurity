@@ -13,7 +13,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 @RestController
 @EnableResourceServer
-@EnableAuthorizationServer
 public class Oauth2AuthorizationServerApplication extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
