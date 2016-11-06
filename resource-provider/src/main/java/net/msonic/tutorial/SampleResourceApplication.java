@@ -1,4 +1,4 @@
-package com.hascode.tutorial;
+package net.msonic.tutorial;
 
 import java.util.UUID;
 
