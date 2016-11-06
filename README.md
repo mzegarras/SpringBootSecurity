@@ -6,6 +6,7 @@ La idea original la encuentran en:
 
 http://www.hascode.com/2016/03/setting-up-an-oauth2-authorization-server-and-resource-provider-with-spring-boot/
 
+Se agregó como validar los usuarios usando MySQL
 
 ## Running the Identity Server
 
