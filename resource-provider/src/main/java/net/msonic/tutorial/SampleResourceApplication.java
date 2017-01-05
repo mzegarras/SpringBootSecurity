@@ -94,6 +94,28 @@ public class SampleResourceApplication {
 		                .antMatchers(HttpMethod.PATCH, "/api/**").access("#oauth2.hasScope('write')") 
 		                .antMatchers(HttpMethod.PUT, "/api/**").access("#oauth2.hasScope('write')") 
 		                .antMatchers(HttpMethod.DELETE, "/api/**").access("#oauth2.hasScope('write')");
+		        
+		        
+		        
+		        
+		        /*
+		        http
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+			.and()
+				.requestMatchers().antMatchers("/photos/**", "/oauth/users/**", "/oauth/clients/**","/me")
+			.and()
+				.authorizeRequests()
+					.antMatchers("/me").access("#oauth2.hasScope('read')")					
+					.antMatchers("/photos").access("#oauth2.hasScope('read') or (!#oauth2.isOAuth() and hasRole('ROLE_USER'))")                                        
+					.antMatchers("/photos/trusted/**").access("#oauth2.hasScope('trust')")
+					.antMatchers("/photos/user/**").access("#oauth2.hasScope('trust')")					
+					.antMatchers("/photos/**").access("#oauth2.hasScope('read') or (!#oauth2.isOAuth() and hasRole('ROLE_USER'))")
+					.regexMatchers(HttpMethod.DELETE, "/oauth/users/([^/].*?)/tokens/.*")
+						.access("#oauth2.clientHasRole('ROLE_CLIENT') and (hasRole('ROLE_USER') or #oauth2.isClient()) and #oauth2.hasScope('write')")
+					.regexMatchers(HttpMethod.GET, "/oauth/clients/([^/].*?)/users/.*")
+						.access("#oauth2.clientHasRole('ROLE_CLIENT') and (hasRole('ROLE_USER') or #oauth2.isClient()) and #oauth2.hasScope('read')")
+					.regexMatchers(HttpMethod.GET, "/oauth/clients/.*")
+						.access("#oauth2.clientHasRole('ROLE_CLIENT') and #oauth2.isClient() and #oauth2.hasScope('read')");*/
 				
 			}
 			
