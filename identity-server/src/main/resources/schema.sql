@@ -87,18 +87,24 @@ CREATE TABLE user_roles (
 insert into oauth_client_details
 (client_id,resource_ids,client_secret,scope,authorized_grant_types,web_server_redirect_uri,authorities,access_token_validity,refresh_token_validity,additional_information,autoapprove)
 values
-('foo','hascode','foosecret','openid','authorization_code,refresh_token,password',null,null,18000,18000,null,null);
+('foo','hascode','foosecret','read,write','read,write,authorization_code,refresh_token,password,client_credentials',null,'USER',18000,18000,null,null);
+
+insert into oauth_client_details
+(client_id,resource_ids,client_secret,scope,authorized_grant_types,web_server_redirect_uri,authorities,access_token_validity,refresh_token_validity,additional_information,autoapprove)
+values
+('clientapp','test','123456','read,write','read,write,authorization_code,refresh_token,password,client_credentials',null,'USER',18000,18000,null,null);
 
 
   
 
 INSERT INTO users(username,password,enabled) VALUES ('manu','123456', true);
 INSERT INTO users(username,password,enabled) VALUES ('niki','123456', true);
+INSERT INTO users(username,password,enabled) VALUES ('mossy','123456', true);
 
-INSERT INTO user_roles (username, role) VALUES ('manu', 'ROLE_USER');
-INSERT INTO user_roles (username, role) VALUES ('manu', 'ROLE_ADMIN');
-INSERT INTO user_roles (username, role) VALUES ('niki', 'ROLE_USER');
-
+INSERT INTO user_roles (username, role) VALUES ('manu', 'USER');
+INSERT INTO user_roles (username, role) VALUES ('manu', 'ADMIN');
+INSERT INTO user_roles (username, role) VALUES ('niki', 'USER');
+INSERT INTO user_roles (username, role) VALUES ('mossy', 'USER');
 
  
 

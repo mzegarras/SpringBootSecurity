@@ -37,8 +37,20 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	private List<GrantedAuthority> getGrantedAuthorities(User user) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
-		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+				
+		
+		if(user.getUserName().compareTo("manu")==0){
+			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+			authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+			authorities.add(new SimpleGrantedAuthority("ADMIN"));
+			authorities.add(new SimpleGrantedAuthority("USER"));
+		}else if(user.getUserName().compareTo("mossy")==0){
+			authorities.add(new SimpleGrantedAuthority("TEST"));
+		}else{
+			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+			authorities.add(new SimpleGrantedAuthority("USER"));
+		}
+		
 		return authorities;
 	}
 

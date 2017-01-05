@@ -10,8 +10,13 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+
+import net.msonic.tutorial.service.impl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableAuthorizationServer
@@ -22,6 +27,9 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private UserDetailsServiceImpl userDetailsService; 
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -36,11 +44,29 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 		return new JdbcTokenStore(dataSource); // access and refresh tokens will
 												// be maintain in database
 	}
-
+	
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.tokenStore(tokenStore()).authenticationManager(authenticationManager);
+		endpoints.tokenStore(tokenStore()).authenticationManager(authenticationManager).userDetailsService(userDetailsService);
+		
+	
 
 	}
 
+	
+	
+	 @Override
+	    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+	        oauthServer.tokenKeyAccess("isAnonymous() || permitAll()").checkTokenAccess("permitAll()");
+	    }
+	 
+	
+	@Bean
+	public AuthorizationCodeServices authorizationCodeServices() {
+		return new JdbcAuthorizationCodeServices(dataSource);
+	}
+	
+	  
+	
+	
 }
