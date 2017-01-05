@@ -81,7 +81,20 @@ public class SampleResourceApplication {
 					}
 				}, AbstractPreAuthenticatedProcessingFilter.class);
 				http.csrf().disable();
-				http.authorizeRequests().anyRequest().authenticated();
+				//http.authorizeRequests().anyRequest().authenticated();
+				
+
+		        http 
+		            // For some reason we cant just "permitAll" OPTIONS requests which are needed for CORS support. Spring Security 
+		            // will respond with an HTTP 401 nonetheless. 
+		            // So we just put all other requests types under OAuth control and exclude OPTIONS. 
+		            .authorizeRequests() 
+		                .antMatchers(HttpMethod.GET, "/api/**").access("#oauth2.hasScope('read')") 
+		                .antMatchers(HttpMethod.POST, "/api/**").access("#oauth2.hasScope('write') and hasRole('ROLE_TEST')") 
+		                .antMatchers(HttpMethod.PATCH, "/api/**").access("#oauth2.hasScope('write')") 
+		                .antMatchers(HttpMethod.PUT, "/api/**").access("#oauth2.hasScope('write')") 
+		                .antMatchers(HttpMethod.DELETE, "/api/**").access("#oauth2.hasScope('write')");
+				
 			}
 			
 			

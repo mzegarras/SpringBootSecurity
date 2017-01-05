@@ -45,6 +45,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			authorities.add(new SimpleGrantedAuthority("ADMIN"));
 			authorities.add(new SimpleGrantedAuthority("USER"));
 		}else if(user.getUserName().compareTo("mossy")==0){
+			authorities.add(new SimpleGrantedAuthority("ROLE_TEST"));
 			authorities.add(new SimpleGrantedAuthority("TEST"));
 		}else{
 			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
